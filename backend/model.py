@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from backend.schema import Conversation
 from groq import Groq
 import os
@@ -13,11 +14,11 @@ except Exception as e:
   raise Exception("GROQ_API_KEY not found in environment variables. Please set it.") from e
 
 
-def chat_with_groq(conversation: Conversation,) -> str:
+def chat_with_groq(conversation: Conversation) -> str:
   try:
     completion = client.chat.completions.create(
       model = "llama-3.1-8b-instant",
-      messages = conversation.messsages, 
+      messages = conversation.messages, 
       temperature = 1,
       max_tokens = 1024,
       top_p= 1,
@@ -27,9 +28,9 @@ def chat_with_groq(conversation: Conversation,) -> str:
 
     response = ""
 
-    for chunk in completion:
-      response+= chunk.choices[0].delta.content
+    for element in completion:
+      response += element.choices[0].delta.content or ""
     
     return response
   except Exception as e:
-    raise Exception("Error while calling Groq API") from e
+    raise HTTPException("Error while calling Groq API") from e

@@ -1,13 +1,10 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from groq import Groq
-from typing import List, Dict
+from typing import Dict
 from dotenv import load_dotenv
-import os
 
 from backend.schema import UserInput, Conversation
 from backend.model import chat_with_groq
-
 
 
 app = FastAPI()
@@ -44,7 +41,7 @@ async def chat(user_input: UserInput):
     response = chat_with_groq(conversation)
 
     conversation.messages.append({
-      "role": "system",
+      "role": "assistant",
       "content": response
     })
 
@@ -54,6 +51,5 @@ async def chat(user_input: UserInput):
     }
   except Exception as e:
     raise HTTPException(status_code=500, detail="Error while processing the request") from e
-
 
 

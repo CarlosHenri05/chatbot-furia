@@ -8,8 +8,8 @@ class UserInput(BaseModel):
 
 class Conversation:
   def __init__(self):
-    self.messages = List[Dict[str,str]] = [
-      {"role": "system", "content": "Você é uma IA que ajuda a responder perguntas direcionadas a organização de e-sports FURIA."}
+    self.messages: List[Dict[str, str]] = [
+      {"role": "assistant", "content": "Você é uma IA que ajuda a responder perguntas direcionadas a organização de e-sports FURIA."}
     ]
     self.active: bool = True
 
