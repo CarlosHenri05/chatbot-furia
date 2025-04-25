@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 
 from backend.schema import UserInput, Conversation
+from backend.model import chat_with_groq
 
 
 
@@ -21,9 +22,38 @@ app.add_middleware(
 
 conversations: Dict[str, Conversation] = {}
 
+# Salva, cria e retorna as conversas tidas baseadas no ID delas
+def get_or_create_conversation(conversation_id: str) -> Conversation:
+  if conversation_id not in conversations:
+    conversations[conversation_id] = Conversation()
+  return conversations[conversation_id]
+
 @app.post("/chat")
 async def chat(user_input: UserInput):
-  return None
+  conversation = get_or_create_conversation(user_input.conversation_id)
+
+  if not conversation.active:
+    raise HTTPException(status_code=400, detail="Conversation is inactive")
+  
+  try:
+    conversation.messages.append({
+      "role": user_input.role,
+      "content": user_input.message
+    })
+
+    response = chat_with_groq(conversation)
+
+    conversation.messages.append({
+      "role": "system",
+      "content": response
+    })
+
+    return {
+      "response" : response,
+      "conversation_id": user_input.conversation_id,
+    }
+  except Exception as e:
+    raise HTTPException(status_code=500, detail="Error while processing the request") from e
 
 
 
