@@ -1,14 +1,29 @@
-from fastapi import FastAPI
-from app.schema import ChatRequest, ChatResponse
-from app.model import generate_response
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
+from groq import Groq
+from typing import List, Dict
+from dotenv import load_dotenv
+import os
+
+from backend.schema import UserInput, Conversation
 
 
 
 app = FastAPI()
 
-@app.post("/chat", response_model=ChatResponse)
-async def chat (request: ChatRequest) -> ChatResponse:
+app.add_middleware(
+  CORSMiddleware,
+  allow_origins=["*"],
+  allow_credentials=True,
+  allow_methods=["*"],
+  allow_headers=["*"],
+)
 
-  resposta = generate_response(request.message)
+conversations: Dict[str, Conversation] = {}
 
-  return ChatResponse(response= resposta)
+@app.post("/chat")
+async def chat(user_input: UserInput):
+  return None
+
+
+
