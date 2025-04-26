@@ -17,7 +17,7 @@ except Exception as e:
 def chat_with_groq(conversation: Conversation) -> str:
   try:
     completion = client.chat.completions.create(
-      model = "llama-3.1-8b-instant",
+      model = "llama-3.3-70b-versatile",
       messages = conversation.messages, 
       temperature = 1,
       max_tokens = 1024,
