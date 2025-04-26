@@ -11,7 +11,7 @@ app = FastAPI()
 
 app.add_middleware(
   CORSMiddleware,
-  allow_origins=["http://localhost:3000"],
+  allow_origins=["*"],
   allow_credentials=True,
   allow_methods=["*"],
   allow_headers=["*"],
@@ -51,5 +51,15 @@ async def chat(user_input: UserInput):
     }
   except Exception as e:
     raise HTTPException(status_code=500, detail="Error while processing the request") from e
+  
+
+@app.get("/conversation/{conversation_id}")
+async def get_conversation(conversation_id : str):
+  conversation = get_or_create_conversation(conversation_id)
+  return {
+    "conversation_id": conversation_id,
+    "messages": conversation.messages,
+    "active": conversation.active
+  }
 
 
