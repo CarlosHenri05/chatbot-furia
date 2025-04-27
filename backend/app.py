@@ -1,10 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from typing import Dict
-from dotenv import load_dotenv
+
 
 from backend.schema import UserInput, Conversation
 from backend.model import chat_with_groq
+
 
 
 app = FastAPI()
