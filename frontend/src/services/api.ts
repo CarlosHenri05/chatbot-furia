@@ -21,14 +21,13 @@ export const chatService = {
       throw error
     }
   },
-}
-
-export const getChatHistory = async (): Promise<ChatResponse[]> => {
-  try {
-    const response = await api.get<ChatResponse[]>('/conversation/{conversation_id}')
-    return response.data
-  } catch (error) {
-    console.error('Erro ao buscar histórico de mensagens:', error)
-    throw error
-  }
+  getChatHistory: async (message_id: string): Promise<ChatResponse> => {
+    try {
+      const response = await api.get<ChatResponse>(`/conversation/${message_id}`)
+      return response.data
+    } catch (error) {
+      console.error('Erro ao buscar histórico de mensagens:', error)
+      throw error
+    }
+  },
 }
