@@ -58,9 +58,9 @@ async def chat(user_input: UserInput):
 async def get_conversation(conversation_id : str):
   conversation = get_or_create_conversation(conversation_id)
   return {
+    "response" : conversation.messages[-1]["content"] if conversation.messages else None, 
     "conversation_id": conversation_id,
-    "messages": conversation.messages,
-    "active": conversation.active
+    "messages": conversation.messages
   }
 
 
