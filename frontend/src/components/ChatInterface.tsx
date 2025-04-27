@@ -32,7 +32,8 @@ export const ChatInterface: React.FC = () => {
           </div>
         </div>
         <div className="container mx-auto flex justify-between items-center">
-          <h1 className="font-bold text-xl">FURIA Chat Assistant</h1>
+          <h1 className="font-bold text-xl">CHATBOT-FURIA</h1>
+
           <button onClick={startNewConversation} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 rounded-lg px-3 py-1.5 text-sm">
             <RefreshCcw size={16} />
             Nova conversa
