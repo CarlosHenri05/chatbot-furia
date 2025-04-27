@@ -18,3 +18,9 @@ export interface UserInputPayload {
   role: 'user'
   conversation_id: string
 }
+
+export interface ChatHistoryResponse {
+  response: string
+  messages: Message[]
+  conversation_id: string
+}
