@@ -2,7 +2,7 @@
 
 🚀 Um chatbot feito com **FastAPI** (Python) no backend e **React + TypeScript** no frontend para responder perguntas relacionadas à organização de e-sports **FURIA**.
 
-> "Você é uma IA que ajuda a responder perguntas direcionadas à organização de e-sports FURIA."
+> "#GOFURIA"
 
 ---
 
