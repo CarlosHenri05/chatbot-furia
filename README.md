@@ -130,12 +130,6 @@ chatbot-furia/
 
 ---
 
-## 💬 Contato
-
-Feito por [CarlosHenri05](https://github.com/CarlosHenri05) 💜  
-Se tiver alguma dúvida ou sugestão, fique à vontade para abrir uma issue!
-
----
 # 📷 Imagens de uso 
 
 ![image](https://github.com/user-attachments/assets/27e99d30-b672-4e8c-ace2-72ce8830443e)
