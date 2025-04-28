@@ -55,6 +55,7 @@ uvicorn backend.app:app --reload
 
 O servidor estará rodando em:  
 👉 `http://localhost:8000`
+👉 `http://localhost:8000/docs` (Swagger)
 
 ---
 
