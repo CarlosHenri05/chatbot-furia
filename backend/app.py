@@ -54,13 +54,6 @@ async def chat(user_input: UserInput):
     raise HTTPException(status_code=500, detail="Error while processing the request") from e
   
 
-@app.get("/conversation/{conversation_id}")
-async def get_conversation(conversation_id : str):
-  conversation = get_or_create_conversation(conversation_id)
-  return {
-    "response" : conversation.messages[-1]["content"] if conversation.messages else None, 
-    "conversation_id": conversation_id,
-    "messages": conversation.messages
-  }
+
 
 
