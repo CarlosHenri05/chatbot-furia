@@ -50,22 +50,6 @@ export function useChat() {
     }
   }
 
-  const fetchChatHistory = async (conversation_id: string) => {
-    setIsLoading(true)
-    try {
-      const response = await chatService.getChatHistory(conversation_id)
-      const formattedMessages: Message[] = response.messages.map((msg) => ({
-        role: msg.role,
-        content: msg.content,
-      }))
-      setMessages(formattedMessages)
-    } catch (error) {
-      console.error('Falha ao buscar histórico de mensagens:', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
   const startNewConversation = () => {
     const newId = uuidv4()
     setConversationId(newId)
@@ -78,6 +62,5 @@ export function useChat() {
     conversationId,
     sendMessage,
     startNewConversation,
-    fetchChatHistory,
   }
 }
