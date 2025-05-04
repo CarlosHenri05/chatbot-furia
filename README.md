@@ -4,11 +4,16 @@
 
 > "#GOFURIA"
 
+# Link para utilizarem:
+
+[Clique aqui para testar o site da maneira que você quiser](#https://chatbot-furia-frontend.onrender.com/)
+
 ---
 
 ## 📂 Tecnologias Utilizadas
 
 - **Backend**:
+
   - [FastAPI](https://fastapi.tiangolo.com/)
   - Swagger (Integrado automaticamente por conta do FastAPI)
   - Python 3.10+
@@ -38,10 +43,12 @@ cd chatbot-furia
 ## 🐍 Rodando o Backend (FastAPI)
 
 ### Pré-requisitos:
+
 - Python 3.10 ou superior
 - Gerenciador de pacotes `pip`
 
 ### Instale as dependências:
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -49,6 +56,7 @@ pip install -r requirements.txt
 (Se necessário, crie um ambiente virtual antes: `python -m venv venv`)
 
 ### Rode o servidor:
+
 ```bash
 uvicorn backend.app:app --reload
 ```
@@ -63,10 +71,12 @@ O servidor estará rodando em:
 ## ⚛️ Rodando o Frontend (React + TypeScript)
 
 ### Pré-requisitos:
+
 - Node.js
 - npm ou yarn
 
 ### Instale as dependências:
+
 ```bash
 npm install
 # ou
@@ -74,6 +84,7 @@ yarn install
 ```
 
 ### Rode o projeto:
+
 ```bash
 npm run dev
 # ou
@@ -130,10 +141,6 @@ chatbot-furia/
 
 ---
 
-# 📷 Imagens de uso 
+# 📷 Imagens de uso
 
 ![image](https://github.com/user-attachments/assets/27e99d30-b672-4e8c-ace2-72ce8830443e)
-
-
-
-
