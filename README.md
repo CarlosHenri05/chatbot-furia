@@ -6,7 +6,7 @@
 
 # Link para utilizarem:
 
-[Clique aqui para testar o site da maneira que você quiser](#https://chatbot-furia-frontend.onrender.com/)
+[Clique aqui para testar o site da maneira que você quiser](https://chatbot-furia-frontend.onrender.com/)
 
 ---
 
