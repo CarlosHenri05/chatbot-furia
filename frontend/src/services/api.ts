@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ChatResponse, UserInputPayload, ChatHistoryResponse } from '../types/chat'
+import { ChatResponse, UserInputPayload } from '../types/chat'
 
 const API_URL = 'http://localhost:8000'
 
@@ -18,15 +18,6 @@ export const chatService = {
       return response.data
     } catch (error) {
       console.error('Erro detalhado:', error)
-      throw error
-    }
-  },
-  getChatHistory: async (message_id: string): Promise<ChatHistoryResponse> => {
-    try {
-      const response = await api.get<ChatHistoryResponse>(`/conversation/${message_id}`)
-      return response.data
-    } catch (error) {
-      console.error('Erro ao buscar histórico de mensagens:', error)
       throw error
     }
   },
