@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { ChatResponse, UserInputPayload } from '../types/chat'
 
-const API_URL = 'http://localhost:8000'
+const API_URL = 'https://chatbot-furia-9r8q.onrender.com/'
 
 const api = axios.create({
   baseURL: API_URL,
